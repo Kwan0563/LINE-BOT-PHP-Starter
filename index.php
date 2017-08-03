@@ -24,6 +24,12 @@ if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
   $arrPostData['messages'][0]['altText'] = "ฉันชื่ออึนฮา ยินดีที่ได้รู้จัก";
   $arrPostData['messages'][0]['baseSize']['height']= "1040";
   $arrPostData['messages'][0]['baseSize']['width']= "1040";
+  $arrPostData['messages'][0]['actions']['type']= "uri";
+  $arrPostData['messages'][0]['actions']['linkUri']= "https://f.ptcdn.info/625/046/000/oew2o2chebLyLzFxttl-o.jpg";
+  $arrPostData['messages'][0]['actions']['area']['x']= "0";
+  $arrPostData['messages'][0]['actions']['area']['y']= "0";
+  $arrPostData['messages'][0]['actions']['area']['width']= "520";
+  $arrPostData['messages'][0]['actions']['area']['height']= "1040";
   $arrPostData['messages'][0]['actions']['type']= "message";
   $arrPostData['messages'][0]['actions']['text']= "annyeong";
   $arrPostData['messages'][0]['actions']['area']['x']= "520";
