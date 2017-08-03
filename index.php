@@ -21,8 +21,6 @@ if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "template";
   $arrPostData['messages'][0]['altText'] = "this is a confirm template";
-  $arrPostData['messages'][0]['template']={['type'] = "confirm"['text'] = "are you sure"['action']=[{['type'] = "message"['label'] = "Yes"['action']['text'] = "yes"}
-                                                                                                    {['type'] = "message"['label'] = "No"['action']['text'] = "no"}]};
  
 }else if($arrJson['events'][0]['message']['text'] == "อยู่"){
   $arrPostData = array();
