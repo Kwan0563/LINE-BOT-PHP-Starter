@@ -16,26 +16,19 @@ if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
   $arrPostData['messages'][0]['text'] = "ดีจ้าอันยองเราชื่ออึนฮานะเป็นBotแชทสำหรับให้ข้อมูลท่องเที่ยวเกาหลีของKwan";
-}else if($arrJson['events'][0]['message']['text'] == "ชื่อไร"){
+}else if($arrJson['events'][0]['message']['text'] == "test"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-  $arrPostData['messages'][0]['type'] = "imagemap";
-  $arrPostData['messages'][0]['baseUrl'] = "https://68.media.tumblr.com/avatar_97e27240687e_128.png";
-  $arrPostData['messages'][0]['altText'] = "ฉันชื่ออึนฮา ยินดีที่ได้รู้จัก";
-  $arrPostData['messages'][0]['baseSize']{['height']= "1040"};
-  $arrPostData['messages'][0]['baseSize']{['width']= "1040"};
-  $arrPostData['messages'][0]['actions']{['type']= "uri"};
-  $arrPostData['messages'][0]['actions']{['linkUri']= "https://68.media.tumblr.com/avatar_97e27240687e_128.png"};
-  $arrPostData['messages'][0]['actions']{['area']['x']= "0"};
-  $arrPostData['messages'][0]['actions']{['area']['y']= "0"};
-  $arrPostData['messages'][0]['actions']{['area']['width']= "520"};
-  $arrPostData['messages'][0]['actions']{['area']['height']= "1040"};
-  $arrPostData['messages'][0]['actions']{['type']= "message"};
-  $arrPostData['messages'][0]['actions']{['text']= "annyeong"};
-  $arrPostData['messages'][0]['actions']{['area']['x']= "520"};
-  $arrPostData['messages'][0]['actions']{['area']['y']= "0"};
-  $arrPostData['messages'][0]['actions']{['area']['width']= "520"};
-  $arrPostData['messages'][0]['actions']{['area']['height']= "1040"};
+  $arrPostData['messages'][0]['type'] = "template";
+  $arrPostData['messages'][0]['altText'] = "this is a confirm template";
+  $arrPostData['messages'][0]['template']['type'] = "confirm";
+  $arrPostData['messages'][0]['template']['text'] = "are you sure";
+  $arrPostData['messages'][0]['template']['action']['type'] = "message";
+  $arrPostData['messages'][0]['template']['action']['label'] = "Yes";
+  $arrPostData['messages'][0]['template']['action']['text'] = "yes";
+ $arrPostData['messages'][0]['template']['action']['type'] = "message";
+  $arrPostData['messages'][0]['template']['action']['label'] = "No";
+  $arrPostData['messages'][0]['template']['action']['text'] = "no";
  
 }else if($arrJson['events'][0]['message']['text'] == "อยู่"){
   $arrPostData = array();
