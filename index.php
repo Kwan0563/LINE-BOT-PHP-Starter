@@ -26,14 +26,11 @@ if($arrJson['events'][0]['message']['text'] == "สวัสดี","หวั�
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
   $arrPostData['messages'][0]['text'] = "ฉันทำอะไรไม่ได้มากเลย ขอโทษน้าา";
-}else if($arrJson['events'][0]['message']['text'] == "บ้านอยู่ไหน"){
+}else if($arrJson['events'][0]['message']['text'] == "ทำอะไรได้บ้าง"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-  $arrPostData['messages'][0]['type'] = "location";
-  $arrPostData['messages'][0]['title']= "my location";
-  $arrPostData['messages'][0]['address'] ="Seoul";
-  $arrPostData['messages'][0]['latitude']= "35.65910807942215";
-  $arrPostData['messages'][0]['longitude']= "139.70372892916203";
+  $arrPostData['messages'][0]['type'] = "text";
+  $arrPostData['messages'][0]['text'] = "ฉันทำอะไรไม่ได้มากเลย ขอโทษน้าา";
 }else if($arrJson['events'][0]['message']['text'] == "ทำอะไรได้บ้าง"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
