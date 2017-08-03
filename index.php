@@ -11,16 +11,27 @@ $arrHeader = array();
 $arrHeader[] = "Content-Type: application/json";
 $arrHeader[] = "Authorization: Bearer {7c+ImaVslAA9wD7zMWNjhOp8ytN2aQSGObYR0bdPF8h+rquZbaj2lwbN1Wu5gvv6GgOJCdshGRc1BL7Ugd0EfPncKufz0/gq0/1nqIn7t8quV5fIau1JTwmOckAOYVVpNdLtUFY7Tj7eWyr9imyXjgdB04t89/1O/w1cDnyilFU=}";
  
-if($arrJson['events'][0]['message']['text'] == "สวัสดี"||"ดีจ้า"){
+if($arrJson['events'][0]['message']['text'] == "สวัสดี"||"ดีจ้า"||"อันยอง"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "สวัสดี ID คุณคือ ".$arrJson['events'][0]['source']['userId'];
+  $arrPostData['messages'][0]['text'] = "ดีจ้าอันยองเราชื่ออึนฮานะเป็นBotแชทสำหรับให้ข้อมูลท่องเที่ยวเกาหลีของKwan";
 }else if($arrJson['events'][0]['message']['text'] == "ชื่ออะไร"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-  $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "ฉันยังไม่มีชื่อนะ";
+  $arrPostData['messages'][0]['type'] = "imagemap";
+  $arrPostData['messages'][0]['baseUrl'] = "https://f.ptcdn.info/625/046/000/oew2o2chebLyLzFxttl-o.jpg";
+  $arrPostData['messages'][0]['altText'] = "ฉันชื่ออึนฮา ยินดีที่ได้รู้จัก";
+  $arrPostData['messages'][0]['baseSize']['height']= "1040";
+  $arrPostData['messages'][0]['baseSize']['width']= "1040";
+  $arrPostData['messages'][0]['actions']['type']= "message";
+  $arrPostData['messages'][0]['actions']['text']= "อันยอง";
+  $arrPostData['messages'][0]['actions']['area']= "message";
+  $arrPostData['messages'][0]['actions']['area']['x']= "520";
+  $arrPostData['messages'][0]['actions']['area']['y']= "0";
+  $arrPostData['messages'][0]['actions']['area']['width']= "520";
+  $arrPostData['messages'][0]['actions']['area']['height']= "1040";
+ 
 }else if($arrJson['events'][0]['message']['text'] == "อยู่"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
