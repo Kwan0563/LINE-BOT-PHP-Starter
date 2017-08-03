@@ -25,8 +25,7 @@ if($arrJson['events'][0]['message']['text'] == "สวัสดี"||"ดีจ�
   $arrPostData['messages'][0]['baseSize']['height']= "1040";
   $arrPostData['messages'][0]['baseSize']['width']= "1040";
   $arrPostData['messages'][0]['actions']['type']= "message";
-  $arrPostData['messages'][0]['actions']['text']= "อันยอง";
-  $arrPostData['messages'][0]['actions']['area']= "message";
+  $arrPostData['messages'][0]['actions']['text']= "annyeong";
   $arrPostData['messages'][0]['actions']['area']['x']= "520";
   $arrPostData['messages'][0]['actions']['area']['y']= "0";
   $arrPostData['messages'][0]['actions']['area']['width']= "520";
