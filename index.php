@@ -11,7 +11,7 @@ $arrHeader = array();
 $arrHeader[] = "Content-Type: application/json";
 $arrHeader[] = "Authorization: Bearer {7c+ImaVslAA9wD7zMWNjhOp8ytN2aQSGObYR0bdPF8h+rquZbaj2lwbN1Wu5gvv6GgOJCdshGRc1BL7Ugd0EfPncKufz0/gq0/1nqIn7t8quV5fIau1JTwmOckAOYVVpNdLtUFY7Tj7eWyr9imyXjgdB04t89/1O/w1cDnyilFU=}";
  
-if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
+if($arrJson['events'][0]['message']['text'] == "สวัสดี":"ดีจ้า"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
