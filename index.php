@@ -27,8 +27,8 @@ if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
   $arrPostData['messages'][0]['type'] = "location";
   $arrPostData['messages'][0]['title'] = "นี้บ้านช้าน";
   $arrPostData['messages'][0]['address'] = "Seoul Gungnum";
-  $arrPostData['messages'][0]['latitude'] = 35.65910807942215,
-  $arrPostData['messages'][0]['longitude'] = 139.70372892916203
+  $arrPostData['messages'][0]['latitude'] = "35.65910807942215";
+  $arrPostData['messages'][0]['longitude'] = "139.70372892916203";
  
 }else if($arrJson['events'][0]['message']['text'] == "ชื่ออะไร"){
   $arrPostData = array();
