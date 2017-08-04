@@ -1,63 +1,126 @@
-<?php
- 
-$strAccessToken = "ACCESS_TOKEN";
- 
-$content = file_get_contents('php://input');
-$arrJson = json_decode($content, true);
- 
-$strUrl = "https://api.line.me/v2/bot/message/reply";
- 
-$arrHeader = array();
-$arrHeader[] = "Content-Type: application/json";
-$arrHeader[] = "Authorization: Bearer {7c+ImaVslAA9wD7zMWNjhOp8ytN2aQSGObYR0bdPF8h+rquZbaj2lwbN1Wu5gvv6GgOJCdshGRc1BL7Ugd0EfPncKufz0/gq0/1nqIn7t8quV5fIau1JTwmOckAOYVVpNdLtUFY7Tj7eWyr9imyXjgdB04t89/1O/w1cDnyilFU=}";
- 
-if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
-  $arrPostData = array();
-  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-  $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "ดีจ้าอันยองเราชื่ออึนฮานะเป็นBotแชทสำหรับให้ข้อมูลท่องเที่ยวเกาหลีของKwan";
-}else if($arrJson['events'][0]['message']['text'] == "test"){
-  $arrPostData = array();
-  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-  $arrPostData['messages'][0]['type'] = "template";
-  $arrPostData['messages'][0]['altText'] = "this is a confirm template";
- 
-}else if($arrJson['events'][0]['message']['text'] == "อยู่"){
-  $arrPostData = array();
-  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-  $arrPostData['messages'][0]['type'] = "location";
-  $arrPostData['messages'][0]['title'] = "นี้บ้านช้าน";
-  $arrPostData['messages'][0]['address'] = "Seoul Gungnum";
-  $arrPostData['messages'][0]['latitude'] = "35.65910807942215";
-  $arrPostData['messages'][0]['longitude'] = "139.70372892916203";
- 
-}else if($arrJson['events'][0]['message']['text'] == "ชื่ออะไร"){
-  $arrPostData = array();
-  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-  $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "ฉันยังไม่มีชื่อนะ";
-}else if($arrJson['events'][0]['message']['text'] == "ทำอะไรได้บ้าง"){
-  $arrPostData = array();
-  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-  $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "ฉันทำอะไรไม่ได้เลย คุณต้องสอนฉันอีกเยอะ";
-}else{
-  $arrPostData = array();
-  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-  $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "ฉันไม่เข้าใจคำสั่ง";
+ <?php
+
+$accessToken = '7c+ImaVslAA9wD7zMWNjhOp8ytN2aQSGObYR0bdPF8h+rquZbaj2lwbN1Wu5gvv6GgOJCdshGRc1BL7Ugd0EfPncKufz0/gq0/1nqIn7t8quV5fIau1JTwmOckAOYVVpNdLtUFY7Tj7eWyr9imyXjgdB04t89/1O/w1cDnyilFU=';
+
+$jsonString = file_get_contents('php://input');
+error_log($jsonString);
+$jsonObj = json_decode($jsonString);
+
+$message = $jsonObj->{"events"}[0]->{"message"};
+$replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
+
+// 送られてきたメッセージの中身からレスポンスのタイプを選択
+if ($message->{"text"} == 'test1') {
+    // 確認ダイアログタイプ
+    $messageData = [
+        'type' => 'template',
+        'altText' => '確認ダイアログ',
+        'template' => [
+            'type' => 'confirm',
+            'text' => '元気ですかー？',
+            'actions' => [
+                [
+                    'type' => 'message',
+                    'label' => '元気です',
+                    'text' => '元気です'
+                ],
+                [
+                    'type' => 'message',
+                    'label' => 'まあまあです',
+                    'text' => 'まあまあです'
+                ],
+            ]
+        ]
+    ];
+} elseif ($message->{"text"} == 'test2') {
+    // ボタンタイプ
+    $messageData = [
+        'type' => 'template',
+        'altText' => 'ボタン',
+        'template' => [
+            'type' => 'buttons',
+            'title' => 'タイトルです',
+            'text' => '選択してね',
+            'actions' => [
+                [
+                    'type' => 'postback',
+                    'label' => 'webhookにpost送信',
+                    'data' => 'value'
+                ],
+                [
+                    'type' => 'uri',
+                    'label' => 'googleへ移動',
+                    'uri' => 'https://google.com'
+                ]
+            ]
+        ]
+    ];
+} elseif ($message->{"text"} == 'test3') {
+    // カルーセルタイプ
+    $messageData = [
+        'type' => 'template',
+        'altText' => 'カルーセル',
+        'template' => [
+            'type' => 'carousel',
+            'columns' => [
+                [
+                    'title' => 'カルーセル1',
+                    'text' => 'カルーセル1です',
+                    'actions' => [
+                        [
+                            'type' => 'postback',
+                            'label' => 'webhookにpost送信',
+                            'data' => 'value'
+                        ],
+                        [
+                            'type' => 'uri',
+                            'label' => '美容の口コミ広場を見る',
+                            'uri' => 'http://clinic.e-kuchikomi.info/'
+                        ]
+                    ]
+                ],
+                [
+                    'title' => 'カルーセル2',
+                    'text' => 'カルーセル2です',
+                    'actions' => [
+                        [
+                            'type' => 'postback',
+                            'label' => 'webhookにpost送信',
+                            'data' => 'value'
+                        ],
+                        [
+                            'type' => 'uri',
+                            'label' => '女美会を見る',
+                            'uri' => 'https://jobikai.com/'
+                        ]
+                    ]
+                ],
+            ]
+        ]
+    ];
+} else {
+    // それ以外は送られてきたテキストをオウム返し
+    $messageData = [
+        'type' => 'text',
+        'text' => $message->{"text"}
+    ];
 }
- 
- 
-$ch = curl_init();
-curl_setopt($ch, CURLOPT_URL,$strUrl);
-curl_setopt($ch, CURLOPT_HEADER, false);
+
+$response = [
+    'replyToken' => $replyToken,
+    'messages' => [$messageData]
+];
+error_log(json_encode($response));
+
+$ch = curl_init('https://api.line.me/v2/bot/message/reply');
 curl_setopt($ch, CURLOPT_POST, true);
-curl_setopt($ch, CURLOPT_HTTPHEADER, $arrHeader);
-curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arrPostData));
-curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($response));
+curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+    'Content-Type: application/json; charser=UTF-8',
+    'Authorization: Bearer ' . $accessToken
+));
 $result = curl_exec($ch);
-curl_close ($ch);
- 
-?>
+error_log($result);
+curl_close($ch);
