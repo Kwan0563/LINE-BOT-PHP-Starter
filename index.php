@@ -49,7 +49,7 @@ if ($message->{"text"} == 'a') {
         'altText' => 'ฉันอึนฮาค่ะ',
         'template' => [
             'type' => 'buttons',
-            'thumbnailImageUrl' => 'http://images6.fanpop.com/image/photos/39200000/Eunha-gfriend-39270940-375-500.jpg',
+            'thumbnailImageUrl' => 'https://68.media.tumblr.com/avatar_b08778860159_128.png',
             'title' => 'Menu',
             'text' => 'อึนฮา เป็นbotline แนะนำการท่องเที่ยวใน โซล',
             'actions' => [
