@@ -1,14 +1,15 @@
- <?php
+<?php
 
 $accessToken = '7c+ImaVslAA9wD7zMWNjhOp8ytN2aQSGObYR0bdPF8h+rquZbaj2lwbN1Wu5gvv6GgOJCdshGRc1BL7Ugd0EfPncKufz0/gq0/1nqIn7t8quV5fIau1JTwmOckAOYVVpNdLtUFY7Tj7eWyr9imyXjgdB04t89/1O/w1cDnyilFU=';
-
 $jsonString = file_get_contents('php://input');
 error_log($jsonString);
 $jsonObj = json_decode($jsonString);
 
 $message = $jsonObj->{"events"}[0]->{"message"};
 $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
-if ($message->{"text"} == 'test1') {
+
+
+if ($message->{"text"} == 'a') {    
     $messageData = [
         'type' => 'template',
         'altText' => '確認ダイアログ',
@@ -29,12 +30,14 @@ if ($message->{"text"} == 'test1') {
             ]
         ]
     ];
-} elseif  ($message->{"text"} == 'ดีจ้า') {
+} elseif ($message->{"text"} == '1') {
+    
     $messageData = [
-        'type' => 'text',
-        'text' => $message->{"สวัสดีจ้าเราชื่อ อึนฮาเป็นบอทแชท ของ พี่ขวัญ แนะนำการท่องเที่ยวในโซล เกาหลีใต้จ้า "}
+        'type' => 'template',
+        'text' => 'Hello',
     ];
-}elseif ($message->{"text"} == 'test2') {
+}elseif ($message->{"text"} == 'b') {
+    
     $messageData = [
         'type' => 'template',
         'altText' => 'ボタン',
@@ -56,7 +59,8 @@ if ($message->{"text"} == 'test1') {
             ]
         ]
     ];
-} elseif ($message->{"text"} == 'test3') {
+} elseif ($message->{"text"} == 'c') {
+    // カルーセルタイプ
     $messageData = [
         'type' => 'template',
         'altText' => 'カルーセル',
