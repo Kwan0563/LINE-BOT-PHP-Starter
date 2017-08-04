@@ -33,7 +33,7 @@ if ($message->{"text"} == 'a') {
 } elseif ($message->{"text"} == '1') {
     
     $messageData = [
-        'type' => 'template',
+        'type' => 'text',
         'text' => 'Hello',
     ];
 }elseif ($message->{"text"} == 'b') {
