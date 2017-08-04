@@ -12,20 +12,20 @@ $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
 if ($message->{"text"} == 'a') {    
     $messageData = [
         'type' => 'template',
-        'altText' => '確認ダイアログ',
+        'altText' => 'testtt',
         'template' => [
             'type' => 'confirm',
-            'text' => '元気ですかー？',
+            'text' => 'ttttttt',
             'actions' => [
                 [
                     'type' => 'message',
-                    'label' => '元気です',
-                    'text' => '元気です'
+                    'label' => 'tttt',
+                    'text' => 'tttt'
                 ],
                 [
                     'type' => 'message',
-                    'label' => 'まあまあです',
-                    'text' => 'まあまあです'
+                    'label' => 'tttt',
+                    'text' => 'tttt'
                 ],
             ]
         ]
@@ -40,52 +40,51 @@ if ($message->{"text"} == 'a') {
     
     $messageData = [
         'type' => 'template',
-        'altText' => 'ボタン',
+        'altText' => 'tttt',
         'template' => [
             'type' => 'buttons',
-            'title' => 'タイトルです',
-            'text' => '選択してね',
+            'title' => 'ttt',
+            'text' => 'ttttt',
             'actions' => [
                 [
                     'type' => 'postback',
-                    'label' => 'webhookにpost送信',
+                    'label' => 'ttttt',
                     'data' => 'value'
                 ],
                 [
                     'type' => 'uri',
-                    'label' => 'googleへ移動',
+                    'label' => 'ttttt',
                     'uri' => 'https://google.com'
                 ]
             ]
         ]
     ];
 } elseif ($message->{"text"} == 'c') {
-    // カルーセルタイプ
     $messageData = [
         'type' => 'template',
-        'altText' => 'カルーセル',
+        'altText' => 'ttt',
         'template' => [
             'type' => 'carousel',
             'columns' => [
                 [
-                    'title' => 'カルーセル1',
-                    'text' => 'カルーセル1です',
+                    'title' => 'ttt',
+                    'text' => 'ttt',
                     'actions' => [
                         [
                             'type' => 'postback',
-                            'label' => 'webhookにpost送信',
+                            'label' => 'ttt',
                             'data' => 'value'
                         ],
                         [
                             'type' => 'uri',
-                            'label' => '美容の口コミ広場を見る',
+                            'label' => 'tttt',
                             'uri' => 'http://clinic.e-kuchikomi.info/'
                         ]
                     ]
                 ],
                 [
-                    'title' => 'カルーセル2',
-                    'text' => 'カルーセル2です',
+                    'title' => 'ttt',
+                    'text' => 'ttt',
                     'actions' => [
                         [
                             'type' => 'postback',
