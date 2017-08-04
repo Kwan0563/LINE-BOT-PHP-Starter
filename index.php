@@ -8,10 +8,7 @@ $jsonObj = json_decode($jsonString);
 
 $message = $jsonObj->{"events"}[0]->{"message"};
 $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
-
-// 送られてきたメッセージの中身からレスポンスのタイプを選択
 if ($message->{"text"} == 'test1') {
-    // 確認ダイアログタイプ
     $messageData = [
         'type' => 'template',
         'altText' => '確認ダイアログ',
@@ -32,8 +29,12 @@ if ($message->{"text"} == 'test1') {
             ]
         ]
     ];
-} elseif ($message->{"text"} == 'test2') {
-    // ボタンタイプ
+} elseif  ($message->{"text"} == 'สวัสดี'||'ดีจ้า'||'อันยอง') {
+    $messageData = [
+        'type' => 'text',
+        'text' => $message->{"สวัสดีจ้าเราชื่อ อึนฮาเป็นบอทแชท ของ พี่ขวัญ แนะนำการท่องเที่ยวในโซล เกาหลีใต้จ้า "}
+    ];
+}elseif ($message->{"text"} == 'test2') {
     $messageData = [
         'type' => 'template',
         'altText' => 'ボタン',
@@ -56,7 +57,6 @@ if ($message->{"text"} == 'test1') {
         ]
     ];
 } elseif ($message->{"text"} == 'test3') {
-    // カルーセルタイプ
     $messageData = [
         'type' => 'template',
         'altText' => 'カルーセル',
@@ -99,7 +99,6 @@ if ($message->{"text"} == 'test1') {
         ]
     ];
 } else {
-    // それ以外は送られてきたテキストをオウム返し
     $messageData = [
         'type' => 'text',
         'text' => $message->{"text"}
