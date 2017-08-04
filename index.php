@@ -50,7 +50,7 @@ if ($message->{"text"} == 'a') {
         'template' => [
             'type' => 'buttons',
             'thumbnailImageUrl' => 'https://68.media.tumblr.com/avatar_b08778860159_128.png',
-            'title' => 'Menu',
+            'title' => 'อันนยอง',
             'text' => 'อึนฮา เป็นbotline แนะนำการท่องเที่ยวใน โซล',
             'actions' => [
                 [
@@ -60,7 +60,7 @@ if ($message->{"text"} == 'a') {
                 ],
                 [
                     'type' => 'uri',
-                    'label' => 'View detail',
+                    'label' => 'ค้นหาGoogle เกี่ยวกับฉัน',
                     'uri' => 'https://www.google.co.th/search?q=eunha+gfriend&source=lnms&sa=X&ved=0ahUKEwjFo7bA0L3VAhWDzbwKHQWGDikQ_AUICSgA&biw=1366&bih=662&dpr=1'
                 ]
             ]
