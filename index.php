@@ -30,31 +30,38 @@ if ($message->{"text"} == 'a') {
             ]
         ]
     ];
-} elseif ($message->{"text"} == '1') {
+} elseif ($message->{"text"} == 'สวัสดี') {
     
     $messageData = [
         'type' => 'text',
-        'text' => 'Hello',
+        'text' => 'ดีจ้า เราชื่อ อึนฮา เป็นbotline แนะนำการท่องเที่ยวใน โซล',
+    ];
+}elseif ($message->{"text"} == 'ดีจ้า') {
+    
+    $messageData = [
+        'type' => 'text',
+        'text' => 'ดีจ้า เราชื่อ อึนฮา เป็นbotline แนะนำการท่องเที่ยวใน โซล',
     ];
 }elseif ($message->{"text"} == 'b') {
     
     $messageData = [
         'type' => 'template',
-        'altText' => 'tttt',
+        'altText' => 'ฉันอึนฮาค่ะ',
         'template' => [
             'type' => 'buttons',
-            'title' => 'ttt',
-            'text' => 'ttttt',
+            'thumbnailImageUrl' => 'http://images6.fanpop.com/image/photos/39200000/Eunha-gfriend-39270940-375-500.jpg',
+            'title' => 'ฉันอึนฮาค่ะ',
+            'text' => 'อึนฮา เป็นbotline แนะนำการท่องเที่ยวใน โซล',
             'actions' => [
                 [
                     'type' => 'postback',
-                    'label' => 'ttttt',
+                    'label' => 'อันนยอง',
                     'data' => 'value'
                 ],
                 [
                     'type' => 'uri',
-                    'label' => 'ttttt',
-                    'uri' => 'https://google.com'
+                    'label' => 'ค้นหากูเกิ้ล เกี่ยวกับฉัน',
+                    'uri' => 'https://www.google.co.th/search?q=eunha+gfriend&source=lnms&sa=X&ved=0ahUKEwjFo7bA0L3VAhWDzbwKHQWGDikQ_AUICSgA&biw=1366&bih=662&dpr=1'
                 ]
             ]
         ]
