@@ -29,7 +29,7 @@ if ($message->{"text"} == 'test1') {
             ]
         ]
     ];
-} elseif  ($message->{"text"} = 'ดีจ้า') {
+} elseif  ($message->{"text"} == 'ดีจ้า') {
     $messageData = [
         'type' => 'text',
         'text' => $message->{"สวัสดีจ้าเราชื่อ อึนฮาเป็นบอทแชท ของ พี่ขวัญ แนะนำการท่องเที่ยวในโซล เกาหลีใต้จ้า "}
